@@ -31,6 +31,8 @@ urls = [
     'http://httpstat.us/400'
 ]
 
+# Notice that we set thread.daemon = True so that our program will terminate
+    # after process_requests instead of when the hanging threads finish
 t0 = time.time()
 threads = [MyThread(url) for url in urls]
 for thread in threads:

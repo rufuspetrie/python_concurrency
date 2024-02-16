@@ -15,11 +15,14 @@ urls = [
     'http://httpstat.us/524'
 ]
 
+# Making web requests in sequence
 t0 = time.time()
 for url in urls:
     ping(url)
 print(f"Sequential: {time.time() - t0:.2f} seconds\n")
 
+# Because different servers are independent and most servers can handle
+    # multiple requests simultaneously, it makes sense to parallelize
 t0 = time.time()
 threads = []
 for url in urls:

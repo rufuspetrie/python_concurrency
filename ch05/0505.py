@@ -12,6 +12,7 @@ class MyThread(threading.Thread):
         res = requests.get(self.url)
         self.result = f"{self.url}: {res.text}"
 
+# ?sleep= specifies a delay for the request
 urls = [
     'http://httpstat.us/200',
     'http://httpstat.us/200?sleep=20000',
