@@ -11,7 +11,7 @@ class Consumer(multiprocessing.Process):
         pname = self.name
         while True:
             temp_task = self.task_queue.get()
-            if not temp_task:
+            if temp_task is None:
                 print(f"Exiting {pname}")
                 self.task_queue.task_done()
                 break
@@ -49,6 +49,8 @@ if __name__ == "__main__":
     my_input = [2, 36, 101, 193, 323, 513, 1327, 100000, 9999999, 433785907]
     for item in my_input:
         tasks.put(Task(item))
+    # Putting Nones in the queue and allowing the run method to handle them is known as Poison pilling
+    # It should allow more different processors to work, can't get it going correctly though
     for i in range(n_consumers):
         tasks.put(None)
     tasks.join()

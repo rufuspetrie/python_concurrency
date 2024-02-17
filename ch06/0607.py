@@ -45,8 +45,6 @@ if __name__ == "__main__":
     my_input = [2, 36, 101, 193, 323, 513, 1327, 100000, 9999999, 433785907]
     for item in my_input:
         tasks.put(Task(item))
-    for i in range(n_consumers):
-        tasks.put(None)
     tasks.join()
 
     for i in range(len(my_input)):
