@@ -14,6 +14,8 @@ def f2():
     print(f"Exiting process {p.name}, ID {p.pid}")
 
 if __name__ == "__main__":
+    # By setting p1.daemon = True, the program will terminate without waiting
+        # for the process to finish
     p1 = Process(name = "Worker 1", target = f1)
     p1.daemon = True
     p2 = Process(name = "Worker 2", target = f2)

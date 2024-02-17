@@ -2,6 +2,7 @@ from multiprocessing import Process, current_process
 import time
 import os
 
+# Can use OS library to manually determine process id's
 def print_info(title):
     print(title)
     if hasattr(os, "getppid"):

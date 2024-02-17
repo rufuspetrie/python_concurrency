@@ -14,6 +14,7 @@ def f2():
     print(f"Exiting process {pname}...")
 
 if __name__ == "__main__":
+    # Can manually supply names to processes
     p1 = Process(name = "Worker 1", target = f1)
     p2 = Process(name = "Worker 2", target = f2)
     p3 = Process(target = f1)

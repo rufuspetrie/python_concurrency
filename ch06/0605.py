@@ -22,6 +22,7 @@ if __name__ == "__main__":
     time.sleep(1)
     p2.start()
     
-    p1.join()
+    # Gives p1 one second to finish before terminating
+    p1.join(1)
     print("Whether worker 1 is still going: ", p1.is_alive())
     p2.join()

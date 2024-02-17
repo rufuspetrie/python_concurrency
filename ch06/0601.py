@@ -11,6 +11,7 @@ def count_down(name, delay):
     print(f"Process {name} exiting")
 
 if __name__ == "__main__":
+    # Similar to using threads, processes sometimes yield different output orders
     p1 = Process(target = count_down, args = ("A", 0.5))
     p2 = Process(target = count_down, args = ("B", 0.5))
     p1.start()
